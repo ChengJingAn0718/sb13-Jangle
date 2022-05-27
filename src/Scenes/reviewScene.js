@@ -62,9 +62,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
     useEffect(() => {
 
 
-
-
-
         return () => {
             imageCount = 0;
             isRendered = false;
@@ -89,7 +86,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
         sceneStart: () => {
             baseObject.current.className = 'aniObject'
 
-            timerList[0] = setTimeout(activeBtnFunc, 5000);
+            timerList[0] = setTimeout(activeBtnFunc, 1500);
 
             setRepeatType(2)
 
@@ -280,6 +277,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
                         top: _baseGeo.top + 'px',
                     }}
                 >
+                    <BaseImage url='bg/geeen_bg.png' />
 
                     <div
                         style={{

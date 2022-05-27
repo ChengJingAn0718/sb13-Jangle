@@ -41,11 +41,11 @@ let commonAudio3 = new loadSound('common/common3');
 let subAudioList = []
 
 
-Array.from(Array(10).keys()).map(value => {
+Array.from(Array(15).keys()).map(value => {
     subAudioList.push(new loadSound('word/' + (value + 1)))
 })
 
-backAudio.volume = 0.15;
+backAudio.volume = 0.08;
 
 wooAudio.volume = 0.8;
 successAudio.volume = 0.4;
