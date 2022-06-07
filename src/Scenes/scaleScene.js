@@ -196,6 +196,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                 if (isSubAudio)
                     setTimeout(() => {
                         setTimeout(() => {
+                            subMaskRefList[1].current.setClass('hide')
                             audioList.bodyAudio3.play();
                         }, 500);
                     }, audioList.bodyAudio1.duration * 1000 + 500);
@@ -203,7 +204,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                 setTimeout(() => {
                     if (currentMaskNum < audioPathList.length - 1) {
                         audioList.bodyAudio1.src = getAudioPath('intro/' + audioPathList[currentMaskNum + 1][0]);
-                        if (audioPathList[currentMaskNum + 1].length > 1)
+                        if (audioPathList[currentMaskNum + 1].length > 1) 
                             audioList.bodyAudio3.src = getAudioPath('intro/' + audioPathList[currentMaskNum + 1][1]);
                     }
 
