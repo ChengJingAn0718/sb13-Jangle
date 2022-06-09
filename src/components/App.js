@@ -15,7 +15,7 @@ import { MusicButton } from './CommonButtons';
 var __geo;
 import { UserContext } from "./BaseShot";
 
-let currentSceneNum = 0;
+let currentSceneNum =  0;
 
 const App = React.forwardRef(({ geo, _startTransition, baseGeo, bgLoaded }, ref) => {
   const audioList = useContext(UserContext)
