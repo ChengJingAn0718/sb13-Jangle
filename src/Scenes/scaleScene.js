@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from 'react';
 import "../stylesheets/styles.css";
 import BaseImage from '../components/BaseImage';
 import { UserContext } from '../components/BaseShot';
-import { getAudioPath, prePathUrl } from "../components/CommonFunctions";
+import { getAudioPath, increaseVolume, prePathUrl, setExtraVolume } from "../components/CommonFunctions";
 import { MaskComponent } from "../components/CommonComponents"
 
 let currentMaskNum = 0;
@@ -112,6 +112,27 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             currentImage.current.style.transition = '0.5s'
 
             setTimeout(() => {
+                increaseVolume(audioList)
+
+                // const audios = [
+                //     audioList.bodyAudio1, audioList.bodyAudio2, audioList.bodyAudio3,
+                //     audioList.clapAudio, audioList.yeahAudio, audioList.buzzAudio,
+                //     audioList.tingAudio, audioList.replayAudio, audioList.successAudio,
+                //     , audioList.commonAudio1, audioList.commonAudio2, audioList.commonAudio3
+                // ]
+                // for (let i = 0; i < 15; i++)
+                //     setExtraVolume(audioList[i], 2)
+                // audios.map(audio => {
+                //     setExtraVolume(audio, 2)
+                // })
+
+            }, 2500);
+
+            setTimeout(() => {
+
+
+
+
                 audioList.bodyAudio2.play()
                 setTimeout(() => {
                     setSubMaskLoaded(true)
@@ -204,7 +225,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                 setTimeout(() => {
                     if (currentMaskNum < audioPathList.length - 1) {
                         audioList.bodyAudio1.src = getAudioPath('intro/' + audioPathList[currentMaskNum + 1][0]);
-                        if (audioPathList[currentMaskNum + 1].length > 1) 
+                        if (audioPathList[currentMaskNum + 1].length > 1)
                             audioList.bodyAudio3.src = getAudioPath('intro/' + audioPathList[currentMaskNum + 1][1]);
                     }
 

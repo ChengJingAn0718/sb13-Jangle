@@ -17,6 +17,12 @@ export function initialAudio(audioList) {
     }
 }
 
+export function increaseVolume(audioList) {
+    let allkeys = Object.keys(audioList)
+    for (let i = 0; i < allkeys.length; i++) {
+        setExtraVolume(audioList[allkeys[i]], 2)
+    }
+}
 export function returnAudioPath(num) {
     return prePathUrl() + "sounds/SB_37_Audio_" + num + '.mp3';
 }
