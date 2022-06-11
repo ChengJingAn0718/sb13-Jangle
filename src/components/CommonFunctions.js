@@ -12,9 +12,6 @@ export function initialAudio(audioList) {
         audioList[allkeys[i]].play().catch(error => { })
             .catch(error => {
             })
-        setTimeout(() => {
-            setExtraVolume(audioList[allkeys[i]], 2)
-        }, 400);
 
         audioList[allkeys[i]].pause()
     }
