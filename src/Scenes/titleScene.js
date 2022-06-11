@@ -116,7 +116,7 @@ const Scene = React.forwardRef(({ nextFunc, _geo, _startTransition }, ref) => {
                                 <img
                                     draggable={false}
                                     width={"100%"}
-                                    src={prePathUrl() + 'images/bg/header.svg'}
+                                    src={prePathUrl() + 'images/bg/header.png'}
                                 />
                             </div>
                         </div>
