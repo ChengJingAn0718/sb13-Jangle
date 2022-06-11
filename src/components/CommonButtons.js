@@ -13,7 +13,7 @@ const FullScreenBtn = React.forwardRef((prop, ref) => {
         isFullScreen = true;
     }
     else
-        isFullScreen = false;
+        isFullScreen =  false;
 
 
     function screenControlFunc(prop) {
