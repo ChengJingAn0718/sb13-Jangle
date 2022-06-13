@@ -20,7 +20,7 @@ export function initialAudio(audioList) {
 export function increaseVolume(audioList) {
     let allkeys = Object.keys(audioList)
     for (let i = 0; i < allkeys.length; i++) {
-        setExtraVolume(audioList[allkeys[i]], 2)
+        setExtraVolume(audioList[allkeys[i]], 2.5)
     }
 }
 export function returnAudioPath(num) {
