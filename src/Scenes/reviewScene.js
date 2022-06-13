@@ -89,6 +89,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
                 setExtraVolume(audioList[i], 3)
             }
 
+            setExtraVolume(audioList.commonAudio3, 2.5)
+
 
             baseObject.current.className = 'aniObject'
 
