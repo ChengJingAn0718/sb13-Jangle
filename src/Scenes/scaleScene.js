@@ -9,7 +9,7 @@ let currentMaskNum = 0;
 let subMaskNum = 0;
 const maskPathList = [
     ['1'],
-    ['2'],
+    ['sub'],
     ['3'],
     ['4'],
     ['5'],
@@ -73,6 +73,10 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
 
     const subMarkInfoList = [
         [
+            { p: '2', t: 1000, i: 0 },
+            { p: '1', t: 4000, i: 1 },
+        ],
+        [
             { p: '8', t: 3000, i: 0 },
             { p: '9', t: 5000, i: 1 },
         ],
@@ -102,7 +106,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
 
             baseObject.current.className = 'aniObject'
             subMaskNum = 0;
-            audioList.bodyAudio1.src = getAudioPath('intro/2');
+            audioList.bodyAudio1.src = getAudioPath('intro/3');
             audioList.bodyAudio2.src = getAudioPath('intro/1');
 
             blackWhiteObject.current.style.WebkitMaskImage = 'url("' +
@@ -113,23 +117,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
 
             setTimeout(() => {
 
-
-                // const audios = [
-                //     audioList.bodyAudio1, audioList.bodyAudio2, audioList.bodyAudio3,
-                //     audioList.clapAudio, audioList.yeahAudio, audioList.buzzAudio,
-                //     audioList.tingAudio, audioList.replayAudio, audioList.successAudio,
-                //     , audioList.commonAudio1, audioList.commonAudio2, audioList.commonAudio3
-                // ]
-                // for (let i = 0; i < 15; i++)
-                //     setExtraVolume(audioList[i], 2)
-                // audios.map(audio => {
-                //     setExtraVolume(audio, 2)
-                // })
-
-                setExtraVolume(audioList.bodyAudio1, 2.5)
-                setExtraVolume(audioList.bodyAudio2, 2.5)
-                setExtraVolume(audioList.bodyAudio3, 2.5)
-
+                setExtraVolume(audioList.bodyAudio1, 4)
+                setExtraVolume(audioList.bodyAudio2, 4)
+                setExtraVolume(audioList.bodyAudio3, 4)
             }, 2500);
 
             setTimeout(() => {
@@ -187,6 +177,10 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                     setTimeout(() => {
                         if (index == 0)
                             colorObject.current.className = 'hide'
+
+                        if (index > 0 && subMaskNum == 0)
+                            subMaskRefList[info.i - 1].current.setClass('hide')
+
                         subMaskRefList[info.i].current.setClass('appear')
                         console.log(info)
                     }, info.t);
