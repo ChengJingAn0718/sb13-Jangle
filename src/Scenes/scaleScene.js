@@ -106,7 +106,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
 
             baseObject.current.className = 'aniObject'
             subMaskNum = 0;
-            audioList.bodyAudio1.src = getAudioPath('intro/3');
+            audioList.bodyAudio1.src = getAudioPath('intro/2');
             audioList.bodyAudio2.src = getAudioPath('intro/1');
 
             blackWhiteObject.current.style.WebkitMaskImage = 'url("' +
