@@ -86,7 +86,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
         ]
     ]
 
-    const subMaskRefList = Array.from({ length: 4 }, ref => useRef())
+    const subMaskRefList = Array.from({ length: 6 }, ref => useRef())
     const [isSubMaskLoaded, setSubMaskLoaded] = useState(false)
 
     const baseObject = useRef();
@@ -182,7 +182,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                             subMaskRefList[info.i - 1].current.setClass('hide')
 
                         subMaskRefList[info.i].current.setClass('appear')
-                        console.log(info)
                     }, info.t);
                 })
             }
@@ -209,10 +208,11 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                 }
 
                 audioList.bodyAudio1.play().catch(error => { });
+
                 if (isSubAudio)
                     setTimeout(() => {
                         setTimeout(() => {
-                            subMaskRefList[1].current.setClass('hide')
+                            subMaskRefList[3].current.setClass('hide')
                             audioList.bodyAudio3.play();
                         }, 500);
                     }, audioList.bodyAudio1.duration * 1000 + 500);
