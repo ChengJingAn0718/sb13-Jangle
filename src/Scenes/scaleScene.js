@@ -77,12 +77,12 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             { p: '1', t: 4000, i: 1 },
         ],
         [
-            { p: '8', t: 3000, i: 0 },
-            { p: '9', t: 5000, i: 1 },
+            { p: '8', t: 3000, i: 2 },
+            { p: '9', t: 5000, i: 3 },
         ],
         [
-            { p: '11', t: 2500, i: 2 },
-            { p: '12', t: 5000, i: 3 },
+            { p: '11', t: 2500, i: 4 },
+            { p: '12', t: 5000, i: 5 },
         ]
     ]
 
