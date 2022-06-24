@@ -43,9 +43,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
         },
         sceneStart: () => {
 
-            setExtraVolume(audioList.commonAudio2, 4)
-            setExtraVolume(audioList.commonAudio1, 4)
-            
+            setExtraVolume(audioList.commonAudio2, 6)
+            setExtraVolume(audioList.commonAudio1, 6)
+
             setExtraVolume(audioList.successAudio, 2.5)
             setExtraVolume(audioList.buzzAudio, 2.5)
             setExtraVolume(audioList.tingAudio, 2.5)
@@ -87,13 +87,14 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
     const showControlFunc = () => {
 
-        blackWhiteObject.current.style.WebkitMaskImage = 'url("' + prePathUrl() + 'images/question/' + (stepCount + 2) + '/m.png")'
 
-
-        aniImageList.map((image, index) => {
-            if (index < 3)
-                image.current.setUrl('question/' + (stepCount + 2) + '/' + (index + 1) + '.png')
-        })
+        if (stepCount < questionPartCount - 1) {
+            blackWhiteObject.current.style.WebkitMaskImage = 'url("' + prePathUrl() + 'images/question/' + (stepCount + 2) + '/m.png")'
+            aniImageList.map((image, index) => {
+                if (index < 3)
+                    image.current.setUrl('question/' + (stepCount + 2) + '/' + (index + 1) + '.png')
+            })
+        }
 
         timerList[2] = setTimeout(() => {
             if (stepCount == 0)
@@ -152,17 +153,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                 audioList.successAudio.pause();
                 audioList.successAudio.currentTime = 0;
 
-                // if (stepCount == questionPartCount - 1) {
-                //     continueOptionPart()
-                //     isDisabled = true;
-                //     setTimeout(() => {
-                //         returnBackground();
-                //         // buttonRefs.current.style.pointerEvents = ''
-                //     }, 2000);
-                // }
-
-                // else {
-                //     isDisabled = false;
+             
                 if (stepCount < questionPartCount) {
                     returnBackground();
                     buttonRefs.current.style.pointerEvents = ''
@@ -172,13 +163,11 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                         nextFunc()
                     }, 2000);
                 }
-                // }
             }, 4000);
 
         }, audioList.bodyAudio2.duration * 1000);
     }
 
-    //2022-3-27 modified by Cheng...
 
     const transSignaler = (signal) => {
 
@@ -320,11 +309,11 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                         , cursor: "pointer",
                                     }}>
                                     <BaseImage
-                                        url={'Icon/grey_progress.png'}
+                                        url={'icon/grey_progress.png'}
                                     />
                                     <BaseImage
                                         ref={starRefs[starRefs.length - 1 - value]}
-                                        url={'Icon/progress.png'}
+                                        url={'icon/progress.png'}
                                         className='hideObject'
                                     />
                                 </div>)
@@ -407,7 +396,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
                                     }}>
                                     <img
-
                                         width={"370%"}
                                         style={{
                                             position: 'absolute',
@@ -415,7 +403,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                             top: '-32%'
                                         }}
                                         draggable={false}
-                                        src={prePathUrl() + 'images/Buttons/Answer_Button.svg'}
+                                        src={prePathUrl() + 'images/buttons/answer_button.svg'}
                                     />
                                 </div>
                             </div>
